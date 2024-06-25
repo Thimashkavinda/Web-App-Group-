@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         wineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         wineList = new ArrayList<>();
-        wineList.add(new Wine("Red Wine", "A fine red wine.", 19.99, "https://example.com/red_wine.jpg"));
-        wineList.add(new Wine("White Wine", "A crisp white wine.", 15.99, "https://example.com/white_wine.jpg"));
-        wineList.add(new Wine("Rose Wine", "A refreshing rose wine.", 12.99, "https://example.com/rose_wine.jpg"));
+        wineList.add(new Wine("Red Wine", "A fine red wine.", 19.99, "red_wine.jpg"));
+        wineList.add(new Wine("White Wine", "A crisp white wine.", 15.99, "white_wine.jpg"));
+        wineList.add(new Wine("Rose Wine", "A refreshing rose wine.", 12.99, "rose_wine.jpg"));
 
         wineAdapter = new WineAdapter(this, wineList);
         wineRecyclerView.setAdapter(wineAdapter);
