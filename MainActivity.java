@@ -1,34 +1,36 @@
-package com.example.winestoreapp2;
+package com.example.hansagiriwine;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.hansagiriwine.R;
+import com.example.hansagiriwine.activity.HomeActivity;
+import com.example.hansagiriwine.utils.Utils;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView wineRecyclerView;
-    private WineAdapter wineAdapter;
-    private List<Wine> wineList;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        wineRecyclerView = findViewById(R.id.wineRecyclerView);
-        wineRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Utils.blackIconStatusBarColor(MainActivity.this ,R.color.splash_background);
+        Utils.changeNavigationBarColor(MainActivity.this ,R.color.splash_background);
 
-        wineList = new ArrayList<>();
-        wineList.add(new Wine("Red Wine", "A fine red wine.", 19.99, "red_wine.jpg"));
-        wineList.add(new Wine("White Wine", "A crisp white wine.", 15.99, "white_wine.jpg"));
-        wineList.add(new Wine("Rose Wine", "A refreshing rose wine.", 12.99, "rose_wine.jpg"));
-
-        wineAdapter = new WineAdapter(this, wineList);
-        wineRecyclerView.setAdapter(wineAdapter);
+        new Handler().postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                startActivity(new Intent(MainActivity.this , HomeActivity.class));
+                finish();
+            }
+        }, 3000);
     }
-}
+    }
